@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "Inter Medium";
+    src: url(/public/fonts/Inter_18pt-Medium.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Inter Regular";
+    src: url(/public/fonts/Inter_18pt-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Inter Italic";
+    src: url(/public/fonts/Inter_18pt-Italic.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Neue Machina Bold";
+    src: url(/public/fonts/PPNeueMachina-PlainUltrabold.otf) format("opentype");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    outline: none;   
+    font-family: "Inter Medium";
+}
+
+:root{
+    /* Sizes */
+    --maxSizeDesktop: 1080px;
+
+    /* Fuentes */
+    --neueBold: "Neue Machina Bold";
+    --interMedium: "Inter Medium";
+    --interRegular: "Inter Regular";
+    --interItalic: "Inter Italic";
+
+    /* Colores */
+    --beige: #FEF9F3;
+    --verde: #6FDD7A;
+    --negro: #000000;
+    --textoGris: #444444;
+    --blanco: #fff
+}
+
+p{
+    font-family: var(--interItalic);
+    font-size: 20px;
+}

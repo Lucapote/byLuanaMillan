@@ -1,0 +1,18 @@
+.boton{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 167px;
+}
+
+.botonLlamada{
+    background-color: var(--negro);
+    color: var(--blanco);
+    width: fit-content;
+    border: none;
+    gap: 5px;
+    padding: 15px 20px;
+    border-radius: 60px;
+    text-transform: capitalize;
+}

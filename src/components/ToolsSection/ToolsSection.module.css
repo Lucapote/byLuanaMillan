@@ -1,0 +1,42 @@
+.containerTextoImg{
+    display: flex;
+    align-items: center;
+}
+
+.contenedorTextos,
+.imgLumi{
+    flex: 1;
+}
+
+.contenedorTextos{
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    height: fit-content;
+}
+
+.titulo{
+    font-size: 60px;
+    font-family: var(--neueBold);
+    width: 420px;
+}
+
+.descripcion{
+    font-size: 24px;
+    font-family: var(--interMedium);
+    color: var(--textoGris);
+    width: 330px;
+}
+
+.contenedorTools{
+    max-width: var(--maxSizeDesktop);
+}
+
+.toolsSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}

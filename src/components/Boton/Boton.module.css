@@ -4,6 +4,10 @@
     justify-content: center;
     align-items: center;
     min-width: 167px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
 }
 
 .botonLlamada{
@@ -15,4 +19,41 @@
     padding: 15px 20px;
     border-radius: 60px;
     text-transform: capitalize;
+}
+
+.botonLlamada:hover{
+    transform: translateY(-2px);
+}
+
+.icono {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.texto {
+    color: inherit;
+}
+
+/* Nueva variante de Portfolio */
+.portfolio {
+    background-color: var(--verde); /* Verde lima claro */
+    color: #000; /* Negro */
+    font-weight: 600;
+    padding: 15px 20px; /* Mismo padding que el original */
+    border-radius: 60px; /* Misma forma que el original */
+    text-transform: none; /* No capitalize para portfolio */
+    letter-spacing: 0.5px;
+    width: fit-content;
+    min-width: 167px; /* Mínimo igual al original */
+}
+
+.portfolio:hover{
+    transform: translateY(-2px);
+}
+
+.textoPortfolio {
+    color: var(--negro);
+    text-align: center;
+    font-size: 20px; /* Mismo tamaño que el original */
 }

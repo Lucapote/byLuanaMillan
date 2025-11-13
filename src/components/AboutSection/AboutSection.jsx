@@ -1,4 +1,5 @@
 import styles from "./AboutSection.module.css"
+import { TextoDestacado } from "../TextoDestacado/TextoDestacado"
 
 export const AboutSection = () => {
     const aboutMe = "/public/img/aboutMe.png"
@@ -10,7 +11,7 @@ export const AboutSection = () => {
                 <img className={styles.imgAbout} src={aboutMe} alt="Luana Millan" />
             </div>
             <div className={styles.izquierdaAbout}>
-                <h2 className={styles.subtituloAbout}>Sobre mi</h2>
+                <TextoDestacado as="h2">Sobre Mi</TextoDestacado>
                 <h1 className={styles.tituloAbout}>Soy Diseñadora Gráfica</h1>
                 <h3 className={styles.descriptionAbout}>Tengo experiencia diseñando para agencias, marcas de indumentaria y proyectos independientes.</h3>
             </div>

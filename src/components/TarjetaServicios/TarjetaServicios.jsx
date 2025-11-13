@@ -1,8 +1,14 @@
-import React from 'react'
+import styles from "./TarjetaServicios.module.css"
 
-const TarjetaServicios = () => {
+const TarjetaServicios = ({imgSrc, texto}) => {
   return (
-    <div>TarjetaServicios</div>
+    <article className={styles.tarjetaServicios}>
+        <div className={styles.circuloServicios}>
+            <img src={imgSrc} alt="icono" />
+        </div>
+
+        <p className={styles.textoServicio}>{texto}</p>
+    </article>
   )
 }
 

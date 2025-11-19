@@ -8,32 +8,37 @@ export const ToolsSection = () => {
         {
             img: "/img/herramientas/illustrator.png",
             texto: "Illustrator",
-            cName: styles.illustrator
+            cName: "illustrator"
+        },
+        {
+            img: "/img/herramientas/photoshop.png",
+            texto: "Photoshop",
+            cName: "photoshop"
         },
         {
             img: "/img/herramientas/afterEffects.png",
             texto: "After Effects",
-            cName: styles.afterEffects          
+            cName: "afterEffects"
         },
         {
             img: "/img/herramientas/inDesign.png",
             texto: "InDesign",
-            cName: styles.inDesign
+            cName: "inDesign"
         },
         {
             img: "/img/herramientas/figma.png",
             texto: "Figma",
-            cName: styles.figma
+            cName: "figma"
         },
         {
             img: "/img/herramientas/capcut.png",
             texto: "Capcut",
-            cName: styles.capcut
+            cName: "capcut"
         },
         {
             img: "/img/herramientas/canva.png",
             texto: "Canva",
-            cName: styles.canva
+            cName: "canva"
         }
     ]
   return (

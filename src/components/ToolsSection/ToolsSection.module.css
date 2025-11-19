@@ -30,6 +30,11 @@
 
 .contenedorTools{
     max-width: var(--maxSizeDesktop);
+    overflow: visible;
+
+    display: flex;
+    flex-direction: column;
+    gap: 69px;
 }
 
 .toolsSection{
@@ -39,4 +44,13 @@
     justify-content: center;
     width: 100vw;
     height: 100vh;
+}
+
+.contenedorTarjetas {
+    overflow: visible;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 22px;
+    grid-row-gap: 0px;
 }

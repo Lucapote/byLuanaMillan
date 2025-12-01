@@ -23,8 +23,12 @@
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    outline: none;   
+    outline: none;
     font-family: "Inter Medium";
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 :root{

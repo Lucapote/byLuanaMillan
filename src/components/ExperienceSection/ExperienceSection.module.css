@@ -1,0 +1,85 @@
+.experienceSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 64px 0;
+}
+
+.containerExperience{
+    max-width: var(--maxSizeDesktop);
+    overflow: visible;
+}
+
+.headingContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenidoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 41px;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    margin-top: 60px;
+}
+
+.tituloExperience{
+    font-family: var(--neueBold);
+    font-size: 60px;
+}
+
+.contenedorTarjetas{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    overflow: visible;
+}
+
+.estrellita{
+    position: absolute;
+    width: 100px;
+    height: 103px;
+    top: -43px;
+    right: -52px;
+    z-index: 10;
+}
+
+.tarjetaExperiencia{
+    position: relative;
+    background-color: var(--beige);
+    box-shadow: var(--shadow);
+    max-width: 524px;
+    padding: 33px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    overflow: visible;
+}
+
+.tarjetaFormacion{
+    gap: 31px;
+}
+
+.tituloTarjeta{
+    font-family: var(--interMedium);
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.tituloExperiencia{
+    font-size: 20px;
+}
+
+.parrafoFormacion{
+    line-height: 1.4;
+}
+
+.negritaExperience{
+    font-family: var(--interMedium);
+    font-weight: bolder;
+}

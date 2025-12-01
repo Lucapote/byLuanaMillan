@@ -1,0 +1,11 @@
+.destacar,
+.formacion{
+    border-left: 3px solid var(--verde);
+    padding-left: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formacion{
+    gap: 26px;
+}

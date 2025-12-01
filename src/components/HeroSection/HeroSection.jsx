@@ -6,7 +6,7 @@ export const HeroSection = () => {
     const lumiHeader = "/public/img/lumiHero.png"
 
   return (
-    <section className={styles.sectionArea}>
+    <section id="home" className={styles.sectionArea}>
         <div className={styles.container}>
             <div className={styles.derechaSection}>
                 <h2 className={styles.quienSoy}></h2>

@@ -1,0 +1,103 @@
+.contenedorNegro{
+    background-color: var(--negro);
+    justify-items: center;
+    padding: 40px 0;
+}
+
+.contenedorGeneral{
+    max-width: var(--maxSizeDesktop);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.imgLogo{
+    width: 165px;
+    height: 70px;
+}
+
+.textoFooter{
+    color: var(--blanco);
+    font-family: var(--interRegular);
+    font-size: 20px;
+}
+
+.linksContainer{
+    display: flex;
+    gap: 20px;
+}
+
+
+.logo{
+    width: 55px;
+    height: 55px;
+}
+
+.tituloLinks{
+    font-size: 24px;
+    color: var(--verde);
+}
+
+.listLink{
+    color: var(--blanco);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.link{
+    color: var(--blanco);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.primerDivisor,
+.segundoDivisor{
+    border-right: 1px solid var(--blanco);
+    padding-right: 40px;
+    margin-right: 40px;
+}
+
+.primerDivisor{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.segundoDivisor{
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+
+.tituloTalk{
+    color: var(--verde);
+    font-family: var(--neueBold);
+    font-size: 30px;
+}
+
+.phoneNumber,
+.emailAddress{
+    color: var(--blanco);
+}
+
+.contenedorDirecciones{
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}
+
+.tercerDivisor{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contenedorBlanco{
+    padding: 10px 0;
+    text-align: center;
+}

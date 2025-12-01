@@ -1,4 +1,7 @@
 import { TarjetaJobs } from "../TarjetaJobs/TarjetaJobs"
+import { TextoDestacado } from "../TextoDestacado/TextoDestacado"
+import { Boton } from "../Boton/Boton"
+import styles from "./ProjectsSection.module.css"
 
 export const ProjectsSection = () => {
     const proyectos = [
@@ -34,10 +37,25 @@ export const ProjectsSection = () => {
         }
     ]
   return (
-    <section>
-        <div>
+    <section id="proyectos" className={styles.projectsSection}>
+        <div className={styles.contenedorProjects}>
+            <div className={styles.headerProyectos}>
+                <TextoDestacado as="h4">Proyectos</TextoDestacado>
+                <h3 className={styles.tituloProyectos}>Mis Trabajos</h3>
+            </div>
 
-        <TarjetaJobs texto={"Hola"}/>
+            <div className={styles.containerContenido}>
+                <div className={styles.containerGrid}>
+                    {proyectos.map((proyecto, index)=>(
+                        <div key={index} className={styles[`div${index + 1}`]}>
+                            <TarjetaJobs img={proyecto.img} titulo={proyecto.titulo} texto={proyecto.texto}/>
+                        </div>
+                    ))}
+                </div>
+                <Boton value={"Ver Portfolio"} variant={"portfolio"}/>
+            </div>
+
+
         </div>
     </section>
   )

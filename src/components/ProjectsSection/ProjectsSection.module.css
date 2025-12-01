@@ -1,14 +1,55 @@
-.parent {
+.projectsSection{
+    background-color: var(--beige);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedorProjects{
+    max-width: var(--maxSizeDesktop);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+    margin: 38px 0;
+}
+
+.containerGrid {
 display: grid;
 grid-template-columns: repeat(4, 1fr);
-grid-template-rows: repeat(2, 1fr);
+grid-template-rows: repeat(2, 196px);
 grid-column-gap: 16px;
 grid-row-gap: 20px;
+overflow: visible;
 }
 
 .div1 { grid-area: 1 / 1 / 3 / 2; }
-.div2 { grid-area: 1 / 3 / 2 / 5; }
-.div3 { grid-area: 1 / 2 / 2 / 3; }
+.div2 { grid-area: 1 / 2 / 2 / 3; }
+.div3 { grid-area: 1 / 3 / 2 / 5; }
 .div4 { grid-area: 2 / 2 / 3 / 3; }
 .div5 { grid-area: 2 / 3 / 3 / 4; }
 .div6 { grid-area: 2 / 4 / 3 / 5; }
+
+.div1, .div2, .div3, .div4, .div5, .div6{
+    overflow: visible;
+}
+
+.headerProyectos{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+}
+
+.tituloProyectos{
+    font-family: var(--neueBold);
+    font-size: 60px;
+}
+
+.containerContenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}

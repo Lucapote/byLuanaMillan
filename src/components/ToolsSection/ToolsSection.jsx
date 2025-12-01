@@ -42,7 +42,7 @@ export const ToolsSection = () => {
         }
     ]
   return (
-    <section className={styles.toolsSection}>
+    <section id="herramientas" className={styles.toolsSection}>
         <div className={styles.contenedorTools}>
             <div className={styles.containerTextoImg}>
                 <div className={styles.contenedorTextos}>

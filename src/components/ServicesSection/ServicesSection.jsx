@@ -41,7 +41,7 @@ export const ServicesSection = () => {
     ]
 
   return (
-    <section className={styles.servicesSection}>
+    <section id="servicios" className={styles.servicesSection}>
         <div className={styles.container}>
             <div className={styles.textoContainer}>
                 <TextoDestacado as="h3">Servicios</TextoDestacado>

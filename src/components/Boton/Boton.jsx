@@ -2,7 +2,7 @@ import styles from './Boton.module.css'
 
 export const Boton = ({ 
   value, 
-  variant = 'hablemos', // 'llamada' para botón original, 'portfolio' para botón verde
+  variant = 'portfolio',
   onClick,
   disabled = false,
   className = ''

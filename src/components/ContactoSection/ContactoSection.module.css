@@ -1,0 +1,55 @@
+.contactoSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 660px;
+    max-height: 710px;
+}
+
+.contenedorPrincipal{
+    display: flex;
+    flex-direction: row;
+    max-width: var(--maxSizeDesktop);
+    flex: 1;
+}
+
+.contenedorIzquierda,
+.contenedorDerecha{
+    flex: 1;
+}
+
+.contenedorDerecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedorIzquierda{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contenedorTextos{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.tituloContacto{
+    font-family: var(--neueBold);
+    font-size: 60px;
+    width: 330px;
+}
+
+.textoContacto{
+    color: var(--textoGris);
+    width: 360px;
+    font-size: 24px;
+    font-family: var(--interRegular);
+}
+
+.lumiContacto{
+    width: 100%;
+}

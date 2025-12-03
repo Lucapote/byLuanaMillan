@@ -83,3 +83,39 @@
     font-family: var(--interMedium);
     font-weight: bolder;
 }
+
+@media (max-width: 767px) {
+    .containerExperience{
+        padding: 0 40px;
+    }
+
+    .headingContainer{
+        align-items: center;
+    }
+
+    .tituloExperience{
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .contenedorTarjetas{
+        flex-direction: column;
+    }
+
+    .contenidoContainer{
+        margin-top: 38px;
+    }
+
+    .contenedorTarjetas{
+        gap: 26px;
+    }
+
+    .tituloTarjeta{
+        font-size: 20px;
+    }
+    .parrafoFormacion,
+    .tituloExperiencia,
+    .parrafoExperience{
+        font-size: 14px;
+    }
+}

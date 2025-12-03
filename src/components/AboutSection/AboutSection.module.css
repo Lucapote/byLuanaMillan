@@ -63,3 +63,35 @@
 .imgAbout{
     width: 100%;
 }
+
+@media (max-width: 767px) {
+    .aboutArea{
+        min-height: 80vh;
+        height: auto;
+    }
+
+    .container{
+        flex-direction: column-reverse;
+        padding: 27px 40px;
+
+    }
+
+    .tituloAbout{
+        font-size: 36px;
+    }
+
+    .descriptionAbout{
+        font-size: 14px;
+    }
+
+    .tituloAbout,
+    .descriptionAbout{
+        width: 80%;
+        text-align: center;
+    }
+
+    .izquierdaAbout{
+        align-items: center;
+        gap: 17px;
+    }
+}

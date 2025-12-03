@@ -53,3 +53,39 @@
 .lumiContacto{
     width: 100%;
 }
+
+@media (max-width: 767px){
+    .contactoSection{
+        min-height: 105vh;
+        height: auto;
+    }
+
+    .contenedorPrincipal{
+        flex-direction: column;
+        padding: 0 40px;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .contenedorTextos{
+        min-height: fit-content;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .tituloContacto{
+        font-size: 36px;
+        width: 80%;
+        text-align: center;
+    }
+
+    .textoContacto{
+        font-size: 14px;
+        width: 95%;
+        text-align: center;
+    }
+
+    .lumiContacto{
+        min-height: fit-content;
+    }
+}

@@ -29,3 +29,11 @@
     text-align: center;
     font-size: 18px;
 }
+
+@media (max-width: 767px) {
+    .contenedorPrincipal{
+        max-width: 160px;
+        width: 100%;
+        justify-self: center;
+    }
+}

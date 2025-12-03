@@ -101,3 +101,52 @@
     padding: 10px 0;
     text-align: center;
 }
+
+@media (max-width: 767px){
+    .contenedorGeneral{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedorNegro{
+        padding: 40px 40px;
+    }
+
+    .primerDivisor,
+    .segundoDivisor{
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+        border-bottom: 1px solid var(--blanco);
+        padding-bottom: 35px;
+        margin-bottom: 35px;
+    }
+
+    .segundoDivisor{
+        gap: 17px;
+    }
+
+    .tercerDivisor{
+        gap: 25px;
+    }
+
+    .textoFooter{
+        font-size: 14px;
+    }
+
+    .tituloLinks{
+        font-size: 20px;
+    }
+
+    .listLink{
+        gap: 5px;
+    }
+
+    .link{
+        font-size: 14px;
+    }
+
+    .textoFooterBlanco{
+        font-size: 12px;
+    }
+}

@@ -48,3 +48,35 @@
 .imgSection{
     width: 100%;
 }
+
+@media (max-width: 767px) {
+    .sectionArea{
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .container{
+        flex-direction: column;
+        padding: 0 40px;
+        gap: 30px;
+    }
+
+    .derechaSection{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tituloSection{
+        font-size: 36px;
+        width: 80%;
+    }
+    
+    .subtituloSection{
+        font-size: 14px;
+    }
+    
+    .tituloSection,
+    .subtituloSection{
+        text-align: center;
+    }
+}

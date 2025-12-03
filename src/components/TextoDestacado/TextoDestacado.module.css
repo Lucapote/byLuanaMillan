@@ -17,3 +17,9 @@
     height: 10px;
     z-index: -1;
 }
+
+@media (max-width: 767px) {
+    .textoDestacado{
+        font-size: 12px;
+    }
+}

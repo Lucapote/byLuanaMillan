@@ -44,3 +44,10 @@
   font-size: 20px;
   font-weight: 100;
 }
+
+@media (max-width: 767px) {
+  .titulo,
+  .texto{
+    font-size: 14px;
+  }
+}

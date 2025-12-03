@@ -41,3 +41,32 @@
     align-items: center;
     gap: 60px;
 }
+
+@media (max-width: 767px) {
+    .container{
+        flex-direction: column;
+        padding: 0 40px;
+        gap: 30px;
+    }
+
+    .textoContainer{
+        align-items: center;
+    }
+
+    .titulo{
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .containerElementos{
+        gap: 35px;
+    }
+
+    .gridContainer{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-column-gap: 22px;
+        grid-row-gap: 19px;
+    }
+}

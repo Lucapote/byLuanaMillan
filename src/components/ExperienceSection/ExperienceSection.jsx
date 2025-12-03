@@ -50,7 +50,11 @@ export const ExperienceSection = () => {
                     </article>
                 </div>
 
-                <Boton value={"Descargar CV"}/>
+                <Boton
+                    value={"Descargar CV"}
+                    href="/CvLuanaMillan.pdf"
+                    download="CV-Luana-Millan.pdf"
+                />
             </div>
 
         </div>

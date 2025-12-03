@@ -1,6 +1,8 @@
 // src/components/FormularioContacto/FormularioContacto.jsx
 import { useState } from 'react'
 import styles from './FormularioContacto.module.css'
+import { useEmailJS } from '../../hooks/useEmailJS'
+import { emailConfig } from '../../config/emailConfig'
 
 export const FormularioContacto = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +12,9 @@ export const FormularioContacto = () => {
     comentarios: ''
   })
 
+  const { sendEmail, loading, error, success } = useEmailJS()
+  const [submitted, setSubmitted] = useState(false)
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
@@ -18,10 +23,25 @@ export const FormularioContacto = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Datos del formulario:', formData)
-    // Aquí puedes agregar la lógica para enviar el formulario
+
+    const result = await sendEmail(
+      formData,
+      emailConfig.serviceId,
+      emailConfig.templateId,
+      emailConfig.publicKey
+    )
+
+    if (result.success) {
+      setSubmitted(true)
+      setFormData({
+        nombre: '',
+        email: '',
+        telefono: '',
+        comentarios: ''
+      })
+    }
   }
 
   return (
@@ -74,8 +94,18 @@ export const FormularioContacto = () => {
         />
       </div>
 
-      <button type="submit" className={styles.botonEnviar}>
-        Enviar
+      {error && (
+        <span className={styles.errorMessage}>
+          {error}
+        </span>
+      )}
+
+      <button
+        type="submit"
+        className={styles.botonEnviar}
+        disabled={loading || submitted}
+      >
+        {loading ? 'Enviando...' : submitted ? 'Enviado' : 'Enviar'}
       </button>
     </form>
   )

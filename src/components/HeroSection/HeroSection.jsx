@@ -15,7 +15,7 @@ export const HeroSection = () => {
                 </TextoDestacado>
                 <h1 className={styles.tituloSection}>¿Necesitas diseño para tu marca?</h1>
                 <h3 className={styles.subtituloSection}>Me apasiona transformar ideas en imágenes que conecten, inspiren y hagan crecer marcas.</h3>
-                <Boton value={"hablemos"} variant={"hablemos"}/>
+                <Boton value={"hablemos"} variant={"hablemos"} href={"https://wa.me/541167825624"}/>
             </div>
             <div className={styles.izquierdaSection}>
                 <img className={styles.imgSection} src={lumiHeader} alt="lumi" />

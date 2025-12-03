@@ -52,7 +52,7 @@ export const ProjectsSection = () => {
                         </div>
                     ))}
                 </div>
-                <Boton value={"Ver Portfolio"} variant={"portfolio"}/>
+                <Boton value={"Ver Portfolio"} variant={"portfolio"} href="https://www.behance.net/luanamillan"/>
             </div>
 
 

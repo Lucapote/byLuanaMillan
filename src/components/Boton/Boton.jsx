@@ -1,11 +1,13 @@
 import styles from './Boton.module.css'
 
-export const Boton = ({ 
-  value, 
+export const Boton = ({
+  value,
   variant = 'portfolio',
   onClick,
   disabled = false,
-  className = ''
+  className = '',
+  href,
+  download
 }) => {
   const iconoLlamada = "/img/hablemos.svg"
 
@@ -36,8 +38,25 @@ export const Boton = ({
     }
   }
 
+  // Si tiene href, renderizar como enlace
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${styles.boton} ${getVariantClass()} ${className}`}
+        onClick={onClick}
+        download={download}
+      >
+        {renderContent()}
+      </a>
+    )
+  }
+
+  // Si no tiene href, renderizar como botón
   return (
-    <button 
+    <button
       className={`${styles.boton} ${getVariantClass()} ${className}`}
       onClick={onClick}
       disabled={disabled}

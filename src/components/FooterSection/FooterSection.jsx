@@ -64,7 +64,7 @@ export const FooterSection = () => {
                         <p className={styles.phoneNumber}>011 6782 5624</p>
                     </div>
 
-                    <Boton value={"Ver Portfolio"} variant='portfolio'/>
+                    <Boton value={"Ver Portfolio"} variant='portfolio' href="https://www.behance.net/luanamillan"/>
                 </div>
             </div>
         </div>

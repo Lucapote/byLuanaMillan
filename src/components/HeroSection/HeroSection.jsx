@@ -3,7 +3,7 @@ import { TextoDestacado } from "../TextoDestacado/TextoDestacado"
 import styles from "./HeroSection.module.css"
 
 export const HeroSection = () => {
-    const lumiHeader = "/public/img/lumiHero.png"
+    const lumiHeader = "/img/lumiHero.png"
 
   return (
     <section id="home" className={styles.sectionArea}>

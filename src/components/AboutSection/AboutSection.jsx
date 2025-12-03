@@ -2,7 +2,7 @@ import styles from "./AboutSection.module.css"
 import { TextoDestacado } from "../TextoDestacado/TextoDestacado"
 
 export const AboutSection = () => {
-    const aboutMe = "/public/img/aboutMe.png"
+    const aboutMe = "/img/aboutMe.png"
 
   return (
     <section className={styles.aboutArea}>

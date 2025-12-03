@@ -3,7 +3,7 @@ import { TarjetaHerramientas } from "../TarjetaHerramientas/TarjetaHerramientas"
 import styles from "./ToolsSection.module.css"
 
 export const ToolsSection = () => {
-    const lumi = "/public/img/lumiSection.png"
+    const lumi = "/img/lumiSection.png"
     const herramientas = [
         {
             img: "/img/herramientas/illustrator.png",

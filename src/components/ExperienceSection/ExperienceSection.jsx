@@ -17,7 +17,7 @@ export const ExperienceSection = () => {
                     <article className={`${styles.tarjetaExperiencia} ${styles.tarjetaFormacion}`}>
                         <h6 className={styles.tituloTarjeta}>Formación</h6>
                             <ExperienciaTexto variant={"formacion"}>
-                                <p className={`${styles.parrafoExperience} ${styles.parrafoFormacion}`}>Comence la carrera de Diseñadora Gráfica en el año 2018 y <span className={styles.negritaExperience}>me recibi en Diciembre del 2024.</span>
+                                <p className={`${styles.parrafoExperience} ${styles.parrafoFormacion}`}>Comencé la carrera de Diseñadora Gráfica en el año 2018 y <span className={styles.negritaExperience}>me recibí en Diciembre del 2024.</span>
                                 </p>
 
                                 <p className={`${styles.parrafoExperience} ${styles.parrafoFormacion}`}>

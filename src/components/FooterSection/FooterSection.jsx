@@ -12,13 +12,13 @@ export const FooterSection = () => {
                     <p className={styles.textoFooter}>Todo mi trabajo está en mis redes, ¡seguime para no <br /> perderte de nada de lo que se viene!</p>
 
                     <div className={styles.linksContainer}>
-                        <a href="">
+                        <a href="https://www.instagram.com/byluanamillan/?hl=es-la" target='_blank'>
                             <img src="/img/redes/instagram.png" alt="instagram" className={styles.logo}/>
                         </a>
-                        <a href="">
+                        <a href="https://www.behance.net/luanamillan" target='_blank'>
                             <img src="/img/redes/behance.png" alt="behance" className={styles.logo}/>
                         </a>
-                        <a href="">
+                        <a href="https://www.linkedin.com/in/luana-millan-20ab2b22b/" target='_blank'>
                             <img src="/img/redes/linkedin.png" alt="linkedin" className={styles.logo}/>
                         </a>
                     </div>

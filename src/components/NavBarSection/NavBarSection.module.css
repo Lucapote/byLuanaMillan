@@ -216,6 +216,22 @@
     }
 }
 
+/* Para la animación inicial */
+.navBarContenedor {
+    /* ... tus estilos existentes ... */
+    overflow: hidden; /* Importante para la animación */
+    min-height: 62px; /* Altura mínima para el círculo */
+}
+
+/* Asegurar que el contenido no desborde durante la animación */
+@media (min-width: 768px) {
+    .navBarContenedor {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
 /* Media Queries - Tablet y Desktop */
 @media (min-width: 768px) {
     /* Ocultar hamburguesa en desktop */

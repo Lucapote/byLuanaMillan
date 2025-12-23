@@ -1,8 +1,6 @@
 import styles from './TarjetaHerramientas.module.css'
 
 export const TarjetaHerramientas = ({img, texto, imgClassName = ""}) => {
-
-    console.log(imgClassName);
     
   return (
     <div className={styles.contenedorPrincipal}>

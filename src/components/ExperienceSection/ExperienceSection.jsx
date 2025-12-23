@@ -54,6 +54,7 @@ export const ExperienceSection = () => {
                     value={"Descargar CV"}
                     href="/CvLuanaMillan.pdf"
                     download="CV-Luana-Millan.pdf"
+                    className='descargar'
                 />
             </div>
 

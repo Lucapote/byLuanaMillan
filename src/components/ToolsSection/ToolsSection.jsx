@@ -120,7 +120,7 @@ export const ToolsSection = () => {
         })
 
         gsap.to(textosRef.current, {
-            yPercent: -30,
+            yPercent: -15,
             xPercent: 5,
             ease: "none",
             scrollTrigger: {

@@ -1,7 +1,13 @@
+import { useRef } from "react"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import ScrollTrigger from "gsap/src/ScrollTrigger"
 import { TarjetaJobs } from "../TarjetaJobs/TarjetaJobs"
 import { TextoDestacado } from "../TextoDestacado/TextoDestacado"
 import { Boton } from "../Boton/Boton"
 import styles from "./ProjectsSection.module.css"
+
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 export const ProjectsSection = () => {
     const proyectos = [
@@ -36,10 +42,53 @@ export const ProjectsSection = () => {
             texto: "Diseño de redes sociales"
         }
     ]
+
+    const sectionRef = useRef()
+    const textosRef = useRef()
+
+    useGSAP(()=>{
+        //seteamos tarjetas
+        gsap.set(".tarjeta-trabajo", {
+            opacity: 0,
+            scale: 0.2
+        })
+
+        //animacion textos
+        gsap.from(textosRef.current.children, {
+            y: -30,
+            opacity: 0,
+            stagger: 0.4,
+            ease: "elastic.inOut",
+            scrollTrigger:{
+                trigger: sectionRef.current,
+                start: "top 70%",
+                toggleActions: "play none none reverse"
+            }
+        })
+
+        //animacion tarjetas
+        gsap.to(".tarjeta-trabajo", {
+            opacity: 1,
+            scale: 1,
+            ease: "power4.inOut",
+            stagger: {
+                amount: 1.2,
+                from: "random"
+            },
+            scrollTrigger:{
+                trigger: sectionRef.current,
+                start: "top 50%",
+                toggleActions: "play none none reverse"
+            }
+
+        })
+    })
+
+    
   return (
-    <section id="proyectos" className={styles.projectsSection}>
+    <section ref={sectionRef} id="proyectos" className={styles.projectsSection}>
         <div className={styles.contenedorProjects}>
-            <div className={styles.headerProyectos}>
+            <div ref={textosRef} className={styles.headerProyectos}>
                 <TextoDestacado as="h4">Proyectos</TextoDestacado>
                 <h3 className={styles.tituloProyectos}>Mis Trabajos</h3>
             </div>
@@ -47,7 +96,7 @@ export const ProjectsSection = () => {
             <div className={styles.containerContenido}>
                 <div className={styles.containerGrid}>
                     {proyectos.map((proyecto, index)=>(
-                        <div key={index} className={styles[`div${index + 1}`]}>
+                        <div key={index} className={`${styles[`div${index + 1}`]} tarjeta-trabajo`}>
                             <TarjetaJobs img={proyecto.img} titulo={proyecto.titulo} texto={proyecto.texto}/>
                         </div>
                     ))}

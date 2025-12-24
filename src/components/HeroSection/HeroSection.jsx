@@ -56,7 +56,7 @@ export const HeroSection = () => {
 
         const tlShake = gsap.timeline({ 
             repeat: -1, // Loop infinito
-            repeatDelay: 2 // Esperar 3 segundos entre cada shake
+            repeatDelay: 1.5 // Esperar 1.5 segundos entre cada shake
         })
         
         tlShake.to(botonRef.current, {

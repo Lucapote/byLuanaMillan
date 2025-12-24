@@ -1,20 +1,119 @@
+import { useRef } from "react"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import ScrollTrigger from "gsap/src/ScrollTrigger"
+import SplitText from "gsap/src/SplitText"
 import { Boton } from '../Boton/Boton'
 import { ExperienciaTexto } from '../ExperienciaTexto/ExperienciaTexto'
 import { TextoDestacado } from '../TextoDestacado/TextoDestacado'
 import styles from './ExperienceSection.module.css'
 
+gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP)
+
 export const ExperienceSection = () => {
+    const florRef = useRef()
+    const tarjetaIzqRef = useRef()
+    const tarjetaDerRef = useRef()
+    const sectionRef = useRef()
+    const titulosRef = useRef()
+    const tituloRef = useRef()
+    
+    useGSAP(()=>{
+        
+        // Esperar a que las fuentes estén listas
+        document.fonts.ready.then(() => {
+            // AHORA sí crear el SplitText
+            const split = SplitText.create(tituloRef.current, {
+                type: "chars"
+            })
+            
+            // Animar los chars
+            gsap.from(split.chars, {
+                y: 100,
+                autoAlpha: 0,
+                stagger: 0.02,
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 80%",
+                    end: "30% 50%",
+                    scrub: 1
+                }
+            })
+        })
+
+        //animacion subitulo
+        gsap.from(titulosRef.current.children[0], {
+            y: -30, 
+            autoAlpha: 0,
+            ease: "elastic.inOut",
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 80%",
+                end: "20% 50%",
+                scrub: 1
+            }
+        })
+
+        // animacion titulo
+        // gsap.from(split.chars, {
+        //     y: 100, 
+        //     stagger: 0.5,
+        //     scrollTrigger: {
+        //         trigger: sectionRef.current,
+        //         start: "top 80%",
+        //         end: "20% 50%",
+        //         scrub: 1,
+        //         markers: true
+        //     }
+        // })
+
+        //flor giratoria infinita
+        gsap.to(florRef.current, {
+            rotate: 360,
+            duration: 2,
+            repeat: -1,
+            ease: "none"
+        })
+
+        //animaciones tarjetas
+        gsap.from(tarjetaIzqRef.current, {
+            x: -150,
+            duration: 1.5,
+            ease: "bounce.inOut",
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 60%",
+                end: "40% 60%",
+                scrub: 1,
+            }
+        })
+        
+        gsap.from(tarjetaDerRef.current, {
+            x: 150,
+            duration: 1,
+            ease: "bounce.inOut",
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 60%",
+                end: "40% 60%",
+                scrub: 1
+            }
+        })
+
+
+    })
+
   return (
-    <section id="educacion" className={styles.experienceSection}>
+    <section ref={sectionRef} id="educacion" className={styles.experienceSection}>
         <div className={styles.containerExperience}>
-            <div className={styles.headingContainer}>
+            <div ref={titulosRef} className={styles.headingContainer}>
                 <TextoDestacado as='h5'>Mi historia en diseño</TextoDestacado>
-                <h4 className={styles.tituloExperience}>Mi recorrido profesional</h4>
+                <h4 ref={tituloRef} className={styles.tituloExperience}>Mi recorrido profesional</h4>
             </div>
 
             <div className={styles.contenidoContainer}>
                 <div className={styles.contenedorTarjetas}>
-                    <article className={`${styles.tarjetaExperiencia} ${styles.tarjetaFormacion}`}>
+                    <article ref={tarjetaIzqRef} className={`${styles.tarjetaExperiencia} ${styles.tarjetaFormacion}`}>
                         <h6 className={styles.tituloTarjeta}>Formación</h6>
                             <ExperienciaTexto variant={"formacion"}>
                                 <p className={`${styles.parrafoExperience} ${styles.parrafoFormacion}`}>Comencé la carrera de Diseñadora Gráfica en el año 2018 y <span className={styles.negritaExperience}>me recibí en Diciembre del 2024.</span>
@@ -28,8 +127,8 @@ export const ExperienceSection = () => {
                             </ExperienciaTexto>
                     </article>
 
-                    <article className={styles.tarjetaExperiencia}>
-                        <img src="/img/estrellita.png" alt="estrellita" className={styles.estrellita}/>
+                    <article ref={tarjetaDerRef} className={styles.tarjetaExperiencia}>
+                        <img ref={florRef} src="/img/estrellita.png" alt="estrellita" className={styles.estrellita}/>
                         <h6 className={styles.tituloTarjeta}>Experiencia Laboral</h6>
                             <ExperienciaTexto>
                                 <h6 className={styles.tituloExperiencia}>We People (2023 – actualidad)</h6>

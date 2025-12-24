@@ -11,7 +11,6 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 export const ServicesSection = () => {
     const sectionRef = useRef()
-    const gridRef = useRef()
     const tituloRef = useRef()
 
     const servicios = [
@@ -51,7 +50,6 @@ export const ServicesSection = () => {
 
     useGSAP(() => {
         // Animar título primero
-        console.log(tituloRef.current.children)
         gsap.from(tituloRef.current.children, {
             y: -30,
             opacity: 0,
@@ -61,22 +59,20 @@ export const ServicesSection = () => {
                 trigger: tituloRef.current,
                 start: "top 80%",
                 end: "bottom 60%",
-                toggleActions: "play none none reverse"
+                toggleActions: "play none none reverse",
             }
         })
 
         // Estado inicial de las tarjetas
         gsap.set(".tarjeta-servicio", {
             y: -100,
-            opacity: 0,
-            rotation: gsap.utils.random(-15, 15, 1), // Rotación aleatoria para cada tarjeta
+            opacity: 0
         })
 
         // Animación de caída vinculada al scroll
         gsap.to(".tarjeta-servicio", {
             y: 0,
             opacity: 1,
-            rotation: 0,
             duration: 0.8,
             ease: "bounce.out",
             stagger: {
@@ -102,7 +98,7 @@ export const ServicesSection = () => {
                 </div>
 
                 <div className={styles.containerElementos}>
-                    <div ref={gridRef} className={styles.gridContainer}>
+                    <div className={styles.gridContainer}>
                         {servicios.map((servicio, index) => (
                             <div className="tarjeta-servicio" key={index}>
                                 <TarjetaServicios imgSrc={servicio.icono} texto={servicio.texto}/>

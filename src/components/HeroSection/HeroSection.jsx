@@ -32,7 +32,7 @@ export const HeroSection = () => {
 
         gsap.to(divTexto.current,
             {
-                yPercent: 30,
+                yPercent: 40,
                 scrollTrigger:{
                     trigger: sectionRef.current,
                     start: "top top",

@@ -4,14 +4,20 @@
 }
 
 .contenedorTextos,
-.imgLumi{
+.contenedorImg{
     flex: 1;
     min-width: 0;
 }
 
+.contenedorImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .imgLumi{
     width: 100%;
-    max-width: 100%;
+    max-width: 435px;
     height: auto;
     object-fit: contain;
 }
@@ -37,9 +43,9 @@
 }
 
 .contenedorTools{
+    width: 100%;
     max-width: var(--maxSizeDesktop);
     overflow: visible;
-
     display: flex;
     flex-direction: column;
     gap: 69px;

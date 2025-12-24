@@ -141,8 +141,10 @@ export const ToolsSection = () => {
                     <h3 className={styles.titulo}>Mis aliados del día a día</h3>
                     <p className={styles.descripcion}>Diseño a medida para lo que tu marca necesita.</p>
                 </div>
-
-                <img ref={imgRef} src={lumi} alt="lumi" className={styles.imgLumi}/>
+                
+                <div ref={imgRef} className={styles.contenedorImg}>
+                    <img src={lumi} alt="lumi" className={styles.imgLumi}/>
+                </div>
             </div>
 
             <div ref={contenedorRef}  className={styles.contenedorTarjetas}>

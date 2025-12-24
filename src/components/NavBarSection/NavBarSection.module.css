@@ -14,6 +14,7 @@
     padding: 11px 23px;
     border-radius: 60px;
     z-index: 1000;
+    box-sizing: border-box; 
 }
 
 .linkImg {
@@ -200,14 +201,21 @@
 
 /* Media Queries - Mobile */
 @media (max-width: 767px) {
-    .navBarContenedor {
-        width: calc(100% - 20px);
-        padding: 11px 15px;
+.navBarContenedor {
+        /* Bajamos el ancho para que respire más y aseguramos que no pase del 100% */
+        width: 90%; 
+        max-width: calc(100% - 30px);
+        padding: 10px 20px;
         top: 10px;
+        /* Quitamos el overflow hidden si solo era para la animación de desktop */
+        /* para que no corte sombras o elementos internos si no es necesario */
+        overflow: visible; 
+        min-height: auto; /* Reset del min-height de desktop */
     }
 
     .logoBlanco {
         height: 30px;
+        width: auto;
     }
 
     /* Ocultar menú desktop en mobile */

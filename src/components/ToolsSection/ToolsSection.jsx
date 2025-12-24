@@ -66,12 +66,11 @@ export const ToolsSection = () => {
         gsap.from(textosRef.current.children,{
             y: -30,
             opacity: 0,
-            duration: 0.8,
-            stagger: 0.4,
+            stagger: 0.2,
             scrollTrigger:{
                 trigger: sectionRef.current,
-                start: "top 60%",
-                end: "bottom 90%",
+                start: "20% 85%",
+                end: "30% 90%",
                 toggleActions: "play none none reverse"
             }
         })
@@ -81,7 +80,7 @@ export const ToolsSection = () => {
             x: 130,
             scale: 0.5,
             opacity: 0,
-            duration: 0.6,
+            duration: 0.3,
             scrollTrigger:{
                 trigger: imgRef.current,
                 start: "top 70%",
@@ -102,8 +101,8 @@ export const ToolsSection = () => {
             scrollTrigger: {
                 trigger: contenedorRef.current,
                 start: "top bottom",
-                end: "bottom 80%",
-                toggleActions: "play none none reverse"
+                end: "center 80%",
+                scrub: 1
             }
         })
 

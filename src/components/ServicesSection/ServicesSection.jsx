@@ -81,8 +81,8 @@ export const ServicesSection = () => {
             },
             scrollTrigger: {
                 trigger: sectionRef.current,
-                start: "top 90%",
-                end: "bottom bottom",
+                start: "30% 65%",
+                end: "65% 75%",
                 scrub: 1
             }
         })

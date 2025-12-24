@@ -72,13 +72,14 @@ export const ProjectsSection = () => {
             scale: 1,
             ease: "power4.inOut",
             stagger: {
-                amount: 1.2,
+                amount: .8,
                 from: "random"
             },
             scrollTrigger:{
                 trigger: sectionRef.current,
-                start: "top 50%",
-                toggleActions: "play none none reverse"
+                start: "20% 50%",
+                end: "center 65%",
+                scrub: 1
             }
 
         })

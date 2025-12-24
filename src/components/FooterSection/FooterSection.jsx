@@ -1,7 +1,44 @@
+// src/components/FooterSection/FooterSection.jsx
+import { useRef, useEffect } from 'react' // 1. Importamos hooks
 import { Boton } from '../Boton/Boton'
 import styles from './FooterSection.module.css'
+import gsap from 'gsap' // 2. Importamos GSAP
 
 export const FooterSection = () => {
+  // 3. Referencia para el ícono del teléfono
+  const phoneRef = useRef(null)
+
+  useEffect(() => {
+    const el = phoneRef.current
+
+    // 4. Creamos la animación de "Ringing"
+    // repeatDelay: 2 -> Espera 2 segundos antes de volver a sonar
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.2 })
+
+    tl.to(el, {
+      rotation: 15, // Gira a la derecha
+      duration: 0.05,
+      ease: "linear"
+    })
+    .to(el, {
+      rotation: -15, // Gira a la izquierda
+      duration: 0.05,
+      ease: "linear",
+      yoyo: true,   // Ida y vuelta
+      repeat: 9     // Repite el movimiento rápido 9 veces (vibración)
+    })
+    .to(el, {
+      rotation: 0,  // Vuelve al centro para descansar
+      duration: 0.05,
+      ease: "linear"
+    })
+
+    // Limpieza
+    return () => {
+      tl.kill()
+    }
+  }, [])
+
   return (
     <footer className={styles.footerSection}>
         <div className={styles.contenedorNegro}>
@@ -54,12 +91,16 @@ export const FooterSection = () => {
 
                     <div className={styles.contenedorDirecciones}>
                         <img src="/img/iconos/footer2.svg" alt="email" className={styles.email}/>
-
                         <p className={styles.emailAddress}>byluanamillan@gmail.com</p>
                     </div>
 
                     <div className={styles.contenedorDirecciones}>
-                        <img src="/img/iconos/footer1.svg" alt="email" className={styles.phone}/>
+                        <img 
+                            ref={phoneRef}
+                            src="/img/iconos/footer1.svg" 
+                            alt="telefono" // Corregí el alt a "telefono" (decía email)
+                            className={styles.phone}
+                        />
 
                         <p className={styles.phoneNumber}>011 6782 5624</p>
                     </div>

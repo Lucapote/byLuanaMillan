@@ -177,8 +177,7 @@ export const ToolsSection = () => {
                     trigger: contenedorRef.current,
                     start: "top bottom",
                     end: "80% 80%",
-                    scrub: 1,
-                    markers: true
+                    scrub: 1
                 }
             })
     

@@ -21,11 +21,13 @@ export const ExperienceSection = () => {
     const tituloRef = useRef()
     
     useGSAP(()=>{
-        // if(!isMobile){
-        //     console.log("Es compu")
-        // }else{
-        //     alert("Mobile")
-        // }
+        //flor giratoria infinita
+        gsap.to(florRef.current, {
+            rotate: 360,
+            duration: 2,
+            repeat: -1,
+            ease: "none"
+        })
         
         // Esperar a que las fuentes estén listas
         document.fonts.ready.then(() => {
@@ -34,80 +36,111 @@ export const ExperienceSection = () => {
                 type: "chars"
             })
             
-            // Animar los chars
-            gsap.from(split.chars, {
-                y: 100,
+
+            if(!isMobile){
+                // Animar los chars
+                gsap.from(split.chars, {
+                    y: 100,
+                    autoAlpha: 0,
+                    stagger: 0.02,
+                    scrollTrigger: {
+                        trigger: titulosRef.current,
+                        start: "top 80%",
+                        end: "30% 50%",
+                        scrub: 1
+                    }
+                })      
+            }else{
+                gsap.from(split.chars, {
+                    y: 100,
+                    autoAlpha: 0,
+                    stagger: 0.02,
+                    scrollTrigger: {
+                        trigger: titulosRef.current,
+                        start: "top 80%",
+                        end: "bottom 70%",
+                        scrub: 1
+                    }
+                })      
+
+            }
+        })
+
+        if(!isMobile){
+            //animacion subitulo
+            gsap.from(titulosRef.current.children[0], {
+                y: -30, 
                 autoAlpha: 0,
-                stagger: 0.02,
+                ease: "elastic.inOut",
                 scrollTrigger: {
-                    trigger: sectionRef.current,
+                    trigger: titulosRef.current,
                     start: "top 80%",
-                    end: "30% 50%",
+                    end: "20% 50%",
                     scrub: 1
                 }
             })
-        })
-
-        //animacion subitulo
-        gsap.from(titulosRef.current.children[0], {
-            y: -30, 
-            autoAlpha: 0,
-            ease: "elastic.inOut",
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 80%",
-                end: "20% 50%",
-                scrub: 1
-            }
-        })
-
-        // animacion titulo
-        // gsap.from(split.chars, {
-        //     y: 100, 
-        //     stagger: 0.5,
-        //     scrollTrigger: {
-        //         trigger: sectionRef.current,
-        //         start: "top 80%",
-        //         end: "20% 50%",
-        //         scrub: 1,
-        //         markers: true
-        //     }
-        // })
-
-        //flor giratoria infinita
-        gsap.to(florRef.current, {
-            rotate: 360,
-            duration: 2,
-            repeat: -1,
-            ease: "none"
-        })
-
-        //animaciones tarjetas
-        gsap.from(tarjetaIzqRef.current, {
-            x: -150,
-            duration: 1.5,
-            ease: "bounce.inOut",
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 60%",
-                end: "40% 60%",
-                scrub: 1,
-            }
-        })
-        
-        gsap.from(tarjetaDerRef.current, {
-            x: 150,
-            duration: 1,
-            ease: "bounce.inOut",
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 60%",
-                end: "40% 60%",
-                scrub: 1
-            }
-        })
-
-
+            //animaciones tarjetas
+            gsap.from(tarjetaIzqRef.current, {
+                x: -150,
+                duration: 1.5,
+                ease: "bounce.inOut",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 60%",
+                    end: "40% 60%",
+                    scrub: 1,
+                }
+            })
+            
+            gsap.from(tarjetaDerRef.current, {
+                x: 150,
+                duration: 1,
+                ease: "bounce.inOut",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 60%",
+                    end: "40% 60%",
+                    scrub: 1
+                }
+            })
+        }else{
+            //animacion subitulo
+            gsap.from(titulosRef.current.children[0], {
+                y: -30, 
+                autoAlpha: 0,
+                ease: "elastic.inOut",
+                scrollTrigger: {
+                    trigger: titulosRef.current,
+                    start: "top 80%",
+                    end: "20% 50%",
+                    scrub: 1
+                }
+            })
+            //animaciones tarjetas
+            gsap.from(tarjetaIzqRef.current, {
+                xPercent: -200,
+                duration: 1.5,
+                ease: "bounce.inOut",
+                scrollTrigger: {
+                    trigger: tarjetaIzqRef.current,
+                    start: "top 60%",
+                    end: "30% 60%",
+                    scrub: 1
+                }
+            })
+            
+            gsap.from(tarjetaDerRef.current, {
+                xPercent: 200,
+                duration: 1,
+                ease: "bounce.inOut",
+                scrollTrigger: {
+                    trigger: tarjetaDerRef.current,
+                    start: "top 60%",
+                    end: "30% 60%",
+                    scrub: 1
+                }
+            })
+        }
     })
 
   return (

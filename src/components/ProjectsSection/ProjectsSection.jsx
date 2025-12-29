@@ -5,6 +5,7 @@ import ScrollTrigger from "gsap/src/ScrollTrigger"
 import { TarjetaJobs } from "../TarjetaJobs/TarjetaJobs"
 import { TextoDestacado } from "../TextoDestacado/TextoDestacado"
 import { Boton } from "../Boton/Boton"
+import { useMediaQuery } from "react-responsive"
 import styles from "./ProjectsSection.module.css"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
@@ -45,6 +46,7 @@ export const ProjectsSection = () => {
 
     const sectionRef = useRef()
     const textosRef = useRef()
+    const isMobile = useMediaQuery({maxWidth: 767})
 
     useGSAP(()=>{
         //seteamos tarjetas
@@ -53,36 +55,75 @@ export const ProjectsSection = () => {
             scale: 0.2
         })
 
-        //animacion textos
-        gsap.from(textosRef.current.children, {
-            y: -30,
-            opacity: 0,
-            stagger: 0.4,
-            ease: "elastic.inOut",
-            scrollTrigger:{
-                trigger: sectionRef.current,
-                start: "top 70%",
-                toggleActions: "play none none reverse"
-            }
-        })
+        if(!isMobile){
+            //animacion textos
+            gsap.from(textosRef.current.children, {
+                y: -30,
+                opacity: 0,
+                stagger: 0.4,
+                ease: "elastic.inOut",
+                scrollTrigger:{
+                    trigger: sectionRef.current,
+                    start: "top 70%",
+                    end: "20% 50%",
+                    // toggleActions: "play none none reverse",
+                    scrub: 1
+                }
+            })
+    
+            //animacion tarjetas
+            gsap.to(".tarjeta-trabajo", {
+                opacity: 1,
+                scale: 1,
+                ease: "power4.inOut",
+                stagger: {
+                    amount: .8,
+                    from: "random"
+                },
+                scrollTrigger:{
+                    trigger: sectionRef.current,
+                    start: "20% 50%",
+                    end: "center 65%",
+                    scrub: 1
+                }
+    
+            })
+        }else{
+            //animacion textos
+            gsap.from(textosRef.current.children, {
+                y: -30,
+                opacity: 0,
+                stagger: 0.4,
+                ease: "elastic.inOut",
+                scrollTrigger:{
+                    trigger: sectionRef.current,
+                    start: "top 70%",
+                    end: "20% 50%",
+                    // toggleActions: "play none none reverse",
+                    scrub: 1
+                }
+            })
+    
+            //animacion tarjetas
+            gsap.to(".tarjeta-trabajo", {
+                opacity: 1,
+                scale: 1,
+                ease: "power4.inOut",
+                stagger: {
+                    amount: .8,
+                    from: "start"
+                },
+                scrollTrigger:{
+                    trigger: sectionRef.current,
+                    start: "20% 50%",
+                    end: "80% 65%",
+                    scrub: 1
+                }
+    
+            })
 
-        //animacion tarjetas
-        gsap.to(".tarjeta-trabajo", {
-            opacity: 1,
-            scale: 1,
-            ease: "power4.inOut",
-            stagger: {
-                amount: .8,
-                from: "random"
-            },
-            scrollTrigger:{
-                trigger: sectionRef.current,
-                start: "20% 50%",
-                end: "center 65%",
-                scrub: 1
-            }
+        }
 
-        })
     })
 
     

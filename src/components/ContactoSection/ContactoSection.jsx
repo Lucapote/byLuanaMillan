@@ -13,31 +13,71 @@ export const ContactoSection = () => {
     const isMobile = useMediaQuery({maxWidth: 767})
     const textosRef = useRef();
     const imgRef = useRef();
+    const formularioRef = useRef()
     const sectionRef = useRef();
 
     useGSAP(()=>{
-        gsap.from(textosRef.current, {
-            x: -150,
-            opacity: 0,
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                scrub: 1,
-                start: "top 80%",
-                end: "30% 70%"
-            }
-        })
+        if(!isMobile){
+            gsap.from(textosRef.current, {
+                x: -150,
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    scrub: 1,
+                    start: "top 80%",
+                    end: "30% 70%",
+                    markers: true
+                }
+            })
+    
+            gsap.from(imgRef.current, {
+                opacity: 0,
+                y: -50,
+                ease: "bounce.inOut",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    scrub: 1,
+                    start: "center 80%",
+                    end: "55% 70%",
+                    markers: true
+                }
+            })
+        }else{
+            gsap.from(textosRef.current, {
+                x: -150,
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: textosRef.current,
+                    scrub: 1,
+                    start: "top 80%",
+                    end: "30% 70%"
+                }
+            })
+            
+            gsap.from(formularioRef.current, {
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: formularioRef.current,
+                    scrub: 1,
+                    start: "top 80%",
+                    end: "center 70%"
+                }
+            })
+    
+            gsap.from(imgRef.current, {
+                opacity: 0,
+                y: -50,
+                ease: "bounce.inOut",
+                scrollTrigger: {
+                    trigger: imgRef.current,
+                    scrub: 1,
+                    start: "center 80%",
+                    end: "55% 70%"
+                }
+            })
 
-        gsap.from(imgRef.current, {
-            opacity: 0,
-            y: -50,
-            ease: "bounce.inOut",
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                scrub: 1,
-                start: "center 80%",
-                end: "55% 70%"
-            }
-        })
+        }
+
     })
 
   return (
@@ -45,15 +85,18 @@ export const ContactoSection = () => {
         <div className={styles.contenedorPrincipal}>
         {isMobile ? (
                         <>
-                <div className={styles.contenedorTextos}>
+                <div ref={textosRef} className={styles.contenedorTextos}>
                     <TextoDestacado as='h6'>Contacto</TextoDestacado>
                     <h5 className={styles.tituloContacto}>Hablemos de tu idea</h5>
                     <p className={styles.textoContacto}>Si querés darle vida a tu marca con un diseño pensado para vos, escribime.</p>
+                </div>
+
+                <div ref={formularioRef}>
+                    <FormularioContacto/>
                 </div>  
 
-                <FormularioContacto/>
 
-                <img src="/img/contacto.png" alt="lumiContacto" className={styles.lumiContacto}/>
+                <img ref={imgRef} src="/img/contacto.png" alt="lumiContacto" className={styles.lumiContacto}/>
             </>
         ):
         (

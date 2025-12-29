@@ -46,7 +46,7 @@ export const FooterSection = () => {
                 <div className={styles.primerDivisor}>
                     <img src="/img/logo.png" alt="logo" className={styles.imgLogo}/>
 
-                    <p className={styles.textoFooter}>Todo mi trabajo está en mis redes, ¡seguime para no <br /> perderte de nada de lo que se viene!</p>
+                    <p className={styles.textoFooter}>Todo mi trabajo está en mis redes, ¡seguime para no perderte de nada de lo que se viene!</p>
 
                     <div className={styles.linksContainer}>
                         <a href="https://www.instagram.com/byluanamillan/?hl=es-la" target='_blank'>

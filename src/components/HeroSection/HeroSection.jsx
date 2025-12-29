@@ -58,10 +58,11 @@ export const HeroSection = () => {
                 }
             }
         )
-
+        
         gsap.to(imgLumi.current,
             {
                 yPercent: -60,
+                rotation: 360,
                 scrollTrigger:{
                     trigger: sectionRef.current,
                     start: "top top",

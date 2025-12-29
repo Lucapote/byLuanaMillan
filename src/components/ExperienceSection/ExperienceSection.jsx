@@ -33,7 +33,7 @@ export const ExperienceSection = () => {
         document.fonts.ready.then(() => {
             // AHORA sí crear el SplitText
             const split = SplitText.create(tituloRef.current, {
-                type: "chars"
+                type: "words, chars"
             })
             
 
@@ -51,7 +51,7 @@ export const ExperienceSection = () => {
                     }
                 })      
             }else{
-                gsap.from(split.chars, {
+                gsap.from(split.words, {
                     y: 100,
                     autoAlpha: 0,
                     stagger: 0.02,

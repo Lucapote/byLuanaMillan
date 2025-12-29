@@ -25,8 +25,7 @@ export const ContactoSection = () => {
                     trigger: sectionRef.current,
                     scrub: 1,
                     start: "top 80%",
-                    end: "30% 70%",
-                    markers: true
+                    end: "30% 70%"
                 }
             })
     
@@ -38,8 +37,7 @@ export const ContactoSection = () => {
                     trigger: sectionRef.current,
                     scrub: 1,
                     start: "center 80%",
-                    end: "55% 70%",
-                    markers: true
+                    end: "55% 70%"
                 }
             })
         }else{

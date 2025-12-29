@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import { useMediaQuery } from "react-responsive"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import ScrollTrigger from "gsap/src/ScrollTrigger"
@@ -11,6 +12,7 @@ import styles from './ExperienceSection.module.css'
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP)
 
 export const ExperienceSection = () => {
+    const isMobile = useMediaQuery({maxWidth: 767})
     const florRef = useRef()
     const tarjetaIzqRef = useRef()
     const tarjetaDerRef = useRef()
@@ -19,6 +21,11 @@ export const ExperienceSection = () => {
     const tituloRef = useRef()
     
     useGSAP(()=>{
+        // if(!isMobile){
+        //     console.log("Es compu")
+        // }else{
+        //     alert("Mobile")
+        // }
         
         // Esperar a que las fuentes estén listas
         document.fonts.ready.then(() => {
@@ -131,7 +138,7 @@ export const ExperienceSection = () => {
                         <img ref={florRef} src="/img/estrellita.png" alt="estrellita" className={styles.estrellita}/>
                         <h6 className={styles.tituloTarjeta}>Experiencia Laboral</h6>
                             <ExperienciaTexto>
-                                <h6 className={styles.tituloExperiencia}>We People (2023 – actualidad)</h6>
+                                <h6 className={styles.tituloExperiencia}>We People (2023 – 2025)</h6>
                                 <p className={styles.parrafoExperience}>Branding, campañas publicitarias y diseño web.</p>
                             </ExperienciaTexto>
                             <ExperienciaTexto>

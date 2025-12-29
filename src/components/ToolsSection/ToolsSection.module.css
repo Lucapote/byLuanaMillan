@@ -59,6 +59,7 @@
     width: 100%;
     height: 100vh;
     margin-top: 50px;
+    overflow-x: hidden;
 }
 
 .contenedorTarjetas {
@@ -124,5 +125,6 @@
     .contenedorTarjetas > *:nth-child(7) {
         grid-column: 1 / -1;
         justify-self: center;
+        width: 164px;
     }
 }

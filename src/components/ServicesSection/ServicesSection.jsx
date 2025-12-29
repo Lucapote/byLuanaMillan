@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react"
 import { Boton } from "../Boton/Boton"
 import TarjetaServicios from "../TarjetaServicios/TarjetaServicios"
 import { TextoDestacado } from "../TextoDestacado/TextoDestacado"
+import { useMediaQuery } from "react-responsive"
 import styles from "./ServicesSection.module.css"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
@@ -12,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 export const ServicesSection = () => {
     const sectionRef = useRef()
     const tituloRef = useRef()
+    const isMobile = useMediaQuery({maxWidth: 767})
 
     const servicios = [
         {
@@ -49,43 +51,84 @@ export const ServicesSection = () => {
     ]
 
     useGSAP(() => {
-        // Animar título primero
-        gsap.from(tituloRef.current.children, {
-            y: -30,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: tituloRef.current,
-                start: "top 80%",
-                end: "bottom 60%",
-                toggleActions: "play none none reverse",
-            }
-        })
+        if(!isMobile){
+            // Animar título primero
+            gsap.from(tituloRef.current.children, {
+                y: -30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: tituloRef.current,
+                    start: "top 80%",
+                    end: "bottom 60%",
+                    scrub: 1
+                }
+            })
+    
+            // Estado inicial de las tarjetas
+            gsap.set(".tarjeta-servicio", {
+                y: -100,
+                opacity: 0
+            })
+    
+            // Animación de caída vinculada al scroll
+            gsap.to(".tarjeta-servicio", {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "bounce.out",
+                stagger: {
+                    amount: 1.5, // Distribuir el stagger en 1.5 segundos de scroll
+                    from: "random" // Las tarjetas caen en orden aleatorio
+                },
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "30% 65%",
+                    end: "65% 75%",
+                    scrub: 1
+                }
+            })
+        }else{
+            // Animar título primero
+            gsap.from(tituloRef.current.children, {
+                y: -30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: tituloRef.current,
+                    start: "top 80%",
+                    end: "bottom 60%",
+                    scrub: 1
+                }
+            })
+    
+            // Estado inicial de las tarjetas
+            gsap.set(".tarjeta-servicio", {
+                y: -100,
+                opacity: 0
+            })
+    
+            // Animación de caída vinculada al scroll
+            gsap.to(".tarjeta-servicio", {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "bounce.out",
+                stagger: {
+                    amount: 1.5, // Distribuir el stagger en 1.5 segundos de scroll
+                    from: "random" // Las tarjetas caen en orden aleatorio
+                },
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "30% 65%",
+                    end: "65% 75%",
+                    scrub: 1
+                }
+            })
+        }
 
-        // Estado inicial de las tarjetas
-        gsap.set(".tarjeta-servicio", {
-            y: -100,
-            opacity: 0
-        })
-
-        // Animación de caída vinculada al scroll
-        gsap.to(".tarjeta-servicio", {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "bounce.out",
-            stagger: {
-                amount: 1.5, // Distribuir el stagger en 1.5 segundos de scroll
-                from: "random" // Las tarjetas caen en orden aleatorio
-            },
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "30% 65%",
-                end: "65% 75%",
-                scrub: 1
-            }
-        })
 
     }, { scope: sectionRef })
 

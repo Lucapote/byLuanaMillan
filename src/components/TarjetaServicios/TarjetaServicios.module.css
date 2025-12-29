@@ -33,11 +33,7 @@
     transform: translateY(-2px);
 }
 
-@media (max-width: 767px) {
-    .circuloServicios{
-        width: 40px;
-    }
-
+@media (max-width: 767px) {     
     .textoServicio{
         font-size: 14px;
     }

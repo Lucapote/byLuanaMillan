@@ -4,6 +4,7 @@ import ScrollTrigger from "gsap/src/ScrollTrigger"
 import styles from "./AboutSection.module.css"
 import { TextoDestacado } from "../TextoDestacado/TextoDestacado"
 import { useGSAP } from "@gsap/react"
+import { useMediaQuery } from "react-responsive"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -12,57 +13,110 @@ export const AboutSection = () => {
     const sectionRef = useRef()
     const imgRef = useRef()
     const textoRef = useRef()
+    const isMobile = useMediaQuery({maxWidth: 767})
 
     useGSAP(() => {
-        // Timeline para efectos de entrada
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 80%",
-                end: "top 30%",
-                toggleActions: "play none none reverse",
-                // markers: true // Descomenta para debug
-            }
-        })
-
-        // Efectos de entrada
-        tl.from(imgRef.current, {
-            x: -100,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out"
-        })
-        .from(textoRef.current.children, {
-            x: 100,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: "power3.out"
-        }, "-=0.5") // Solapar con la imagen
-
-        // Efecto Parallax
-        gsap.to(imgRef.current, {
-            yPercent: -30,
-            ease: "none",
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true
-            }
-        })
-
-        // Parallax más sutil para el texto
-        gsap.to(textoRef.current, {
-            yPercent: -20,
-            ease: "none",
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1 // Añade suavizado
-            }
-        })
+        if(!isMobile){
+            // Timeline para efectos de entrada
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 60%",
+                    end: "80% 80%",
+                    scrub: 1,
+                    // markers: true // Descomenta para debug
+                }
+            })
+    
+            // Efectos de entrada
+            tl.from(imgRef.current, {
+                x: -100,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            })
+            .from(textoRef.current.children, {
+                x: 100,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power3.out"
+            }, "-=0.5") // Solapar con la imagen
+    
+            // Efecto Parallax
+            gsap.to(imgRef.current, {
+                yPercent: -30,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            })
+    
+            // Parallax más sutil para el texto
+            gsap.to(textoRef.current, {
+                yPercent: -20,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1 // Añade suavizado
+                }
+            })
+        }else{
+            // Timeline para efectos de entrada
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 60%",
+                    end: "70% 80%",
+                    scrub: 1,
+                    // markers: true // Descomenta para debug
+                }
+            })
+    
+            // Efectos de entrada
+            tl.from(textoRef.current.children, {
+                x: -100,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            })
+            .from(imgRef.current, {
+                x: 100,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power3.out"
+            }, "-=0.5") // Solapar con la imagen
+    
+            // Efecto Parallax
+            gsap.to(imgRef.current, {
+                yPercent: -30,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            })
+    
+            // Parallax más sutil para el texto
+            gsap.to(textoRef.current, {
+                yPercent: -20,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1 // Añade suavizado
+                }
+            }) 
+        }
 
     }, { scope: sectionRef })
 

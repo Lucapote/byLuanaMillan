@@ -4,6 +4,7 @@ import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import ScrollTrigger from "gsap/src/ScrollTrigger"
 import { useRef } from "react"
+import { useMediaQuery } from "react-responsive"
 import styles from "./HeroSection.module.css"
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
@@ -14,22 +15,13 @@ export const HeroSection = () => {
     const imgLumi = useRef()
     const sectionRef = useRef()
     const botonRef = useRef()
+    const isMobile = useMediaQuery({maxWidth: 767})
 
     useGSAP(()=>{
         const tl = gsap.timeline();
 
-        tl.from(divTexto.current,
-            {
-                delay:1,
-                x: -150,
-                duration: 1
-            })
-        .from(imgLumi.current,
-            {
-                scale: 0.5,
-                duration: 1
-            }, "<")
-
+        if(!isMobile){
+        //ParalaxEffect
         gsap.to(divTexto.current,
             {
                 yPercent: 40,
@@ -53,6 +45,45 @@ export const HeroSection = () => {
                 }
             }
         )
+        }else{
+        //ParalaxEffect
+        gsap.to(divTexto.current,
+            {
+                yPercent: 80,
+                scrollTrigger:{
+                    trigger: sectionRef.current,
+                    start: "top top",
+                    end: "80% 30%",
+                    scrub: true
+                }
+            }
+        )
+
+        gsap.to(imgLumi.current,
+            {
+                yPercent: -60,
+                scrollTrigger:{
+                    trigger: sectionRef.current,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                }
+            }
+        )
+        }
+
+        tl.from(divTexto.current,
+            {
+                delay:1,
+                x: -150,
+                duration: 1
+            })
+        .from(imgLumi.current,
+            {
+                scale: 0.5,
+                duration: 1
+            }, "<")
+
 
         const tlShake = gsap.timeline({ 
             repeat: -1, // Loop infinito

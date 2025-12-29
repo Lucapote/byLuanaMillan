@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react"
 import ScrollTrigger from "gsap/src/ScrollTrigger"
 import { TextoDestacado } from "../TextoDestacado/TextoDestacado"
 import { TarjetaHerramientas } from "../TarjetaHerramientas/TarjetaHerramientas"
+import { useMediaQuery } from "react-responsive"
 import styles from "./ToolsSection.module.css"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
@@ -14,6 +15,7 @@ export const ToolsSection = () => {
     const imgRef = useRef()
     const contenedorRef = useRef()
     const sectionRef = useRef()
+    const isMobile = useMediaQuery({maxWidth: 767})
 
     const herramientas = [
         {
@@ -54,81 +56,158 @@ export const ToolsSection = () => {
     ]
 
     useGSAP(() => {
-        const tl = gsap.timeline()
+        if(!isMobile){
+            //estado inicial de las tarjetas
+            gsap.set(".tarjeta-herramienta", {
+                y:-100,
+                opacity: 0
+            })
+    
+            //animamos los textos
+            gsap.from(textosRef.current.children,{
+                y: -30,
+                opacity: 0,
+                stagger: 0.2,
+                scrollTrigger:{
+                    trigger: sectionRef.current,
+                    start: "20% 85%",
+                    end: "50% 90%",
+                    scrub: 1,
+                }
+            })
+            
+            //animacion imagen
+            gsap.from(imgRef.current,{
+                x: 130,
+                scale: 0.5,
+                opacity: 0,
+                duration: 0.3,
+                scrollTrigger:{
+                    trigger: sectionRef.current,
+                    start: "20% 85%",
+                    end: "50% 90%",
+                    scrub: 1
+                }
+            })        
+    
+            //animacion tarjetas ancladas a scroll
+            gsap.to(".tarjeta-herramienta", {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "bounce.out",
+                stagger: {
+                    amount: 1
+                },
+                scrollTrigger: {
+                    trigger: contenedorRef.current,
+                    start: "top bottom",
+                    end: "center 80%",
+                    scrub: 1
+                }
+            })
+    
+            //efectos parallax
+            gsap.to(imgRef.current, {
+                yPercent: -40,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            })
+    
+            gsap.to(textosRef.current, {
+                yPercent: -15,
+                xPercent: 5,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            })
+        }else{
+            //estado inicial de las tarjetas
+            gsap.set(".tarjeta-herramienta", {
+                y:-100,
+                opacity: 0
+            })
+    
+            //animamos los textos
+            gsap.from(textosRef.current.children,{
+                y: -30,
+                opacity: 0,
+                stagger: 0.2,
+                scrollTrigger:{
+                    trigger: sectionRef.current,
+                    start: "20% 85%",
+                    end: "50% 90%",
+                    scrub: 1,
+                }
+            })
+            
+            //animacion imagen
+            gsap.from(imgRef.current,{
+                x: 130,
+                scale: 0.5,
+                opacity: 0,
+                duration: 0.3,
+                scrollTrigger:{
+                    trigger: sectionRef.current,
+                    start: "20% 85%",
+                    end: "50% 90%",
+                    scrub: 1
+                }
+            })        
+    
+            //animacion tarjetas ancladas a scroll
+            gsap.to(".tarjeta-herramienta", {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "bounce.out",
+                stagger: {
+                    amount: 1
+                },
+                scrollTrigger: {
+                    trigger: contenedorRef.current,
+                    start: "top bottom",
+                    end: "80% 80%",
+                    scrub: 1,
+                    markers: true
+                }
+            })
+    
+            //efectos parallax
+            gsap.to(imgRef.current, {
+                yPercent: -40,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            })
+    
+            gsap.to(textosRef.current, {
+                yPercent: -15,
+                xPercent: 5,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            })
 
-        //estado inicial de las tarjetas
-        gsap.set(".tarjeta-herramienta", {
-            y:-100,
-            opacity: 0
-        })
+        }
 
-        //animamos los textos
-        gsap.from(textosRef.current.children,{
-            y: -30,
-            opacity: 0,
-            stagger: 0.2,
-            scrollTrigger:{
-                trigger: sectionRef.current,
-                start: "20% 85%",
-                end: "30% 90%",
-                toggleActions: "play none none reverse"
-            }
-        })
-
-        //animacion imagen
-        gsap.from(imgRef.current,{
-            x: 130,
-            scale: 0.5,
-            opacity: 0,
-            duration: 0.3,
-            scrollTrigger:{
-                trigger: imgRef.current,
-                start: "top 70%",
-                end: "bottom 60%",
-                toggleActions: "play none none reverse"
-            }
-        })        
-
-        //animacion tarjetas ancladas a scroll
-        gsap.to(".tarjeta-herramienta", {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "bounce.out",
-            stagger: {
-                amount: 1
-            },
-            scrollTrigger: {
-                trigger: contenedorRef.current,
-                start: "top bottom",
-                end: "center 80%",
-                scrub: 1
-            }
-        })
-
-        //efectos parallax
-        gsap.to(imgRef.current, {
-            yPercent: -40,
-            ease: "none",
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true
-            }
-        })
-
-        gsap.to(textosRef.current, {
-            yPercent: -15,
-            xPercent: 5,
-            ease: "none",
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1
-            }
-        })
 
     })
 

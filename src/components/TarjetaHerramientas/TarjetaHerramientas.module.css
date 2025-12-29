@@ -32,7 +32,7 @@
 
 @media (max-width: 767px) {
     .contenedorPrincipal{
-        max-width: 160px;
+        max-width: 164px;
         width: 100%;
         justify-self: center;
     }

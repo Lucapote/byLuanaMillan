@@ -34,6 +34,12 @@
     font-size: 60px;
 }
 
+/* Selecciona cualquier div o elemento generado dentro del título */
+.tituloExperience > div, 
+.tituloExperience div {
+    font-family: inherit !important; /* O usa var(--neueBold) directamente */
+}
+
 .contenedorTarjetas{
     display: flex;
     flex-direction: row;
